@@ -15,3 +15,17 @@ permalink: /python/pyqt
 in order to create the blog tech like this using jekyll. learning the tutorial below. 
 
 https://www.youtube.com/watch?v=iNZBEki_x6o&list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB&index=16
+
+
+## Upload blog file to deploy on github host:
+Create a new branches : gh-pages
+'''
+git init
+
+git checkout -b gh-pages
+
+git add .
+git commit -m "update"
+git remote add origin yourgitlink
+
+'''
