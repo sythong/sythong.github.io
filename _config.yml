@@ -18,7 +18,7 @@ subtitle: EMBEDDED SYSTEM
 description: >- # this means to ignore newlines until "baseurl:"
    This is the blog to sharing algorithms, techinques, tips in embedded system and computer science
 
-baseurl: "sythong.github.io" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 email: sythongmta@gmail.com
