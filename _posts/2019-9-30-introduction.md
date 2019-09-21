@@ -32,3 +32,11 @@ git commit -m "update"
 git remote add origin yourgitlink
 
 ```
+
+## Hướng dẫn sử dụng markdown:
+- Chèn hình ảnh :
+cú pháp : 
+```![](image.png)``
+
+- thêm code: 
+điền dấu: ```
