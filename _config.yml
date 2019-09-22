@@ -58,6 +58,7 @@ zalo_username: 0972879983
 
 # Build settings
 markdown: kramdown
+# markdown: maruku
 theme: minima
 plugins:
   - jekyll-feed
@@ -85,3 +86,44 @@ excerpt_separator: "\n\n\n\n"
 # paginate
 # gems: [jekyll-paginate]
 paginate: 6
+
+
+author_work_experiences: 
+            - company_name: Naval Acadamy
+              company_logo: google.png
+              company_url: https://google.com
+              designation: Software Engineer
+              description: Worked on various Google Products
+              visibility: true
+            - company_name: Microsoft
+              company_logo: microsoft.png
+              company_url: https://microsoft.com
+              designation: Azure Developer
+              description: Worked on various Azure Cloud Products
+              visibility: true
+
+author_education_details:
+              - college_logo: mit.png
+                college_name: MTA
+                college_url: http://mta.edu.vn/
+                college_degree: CS Engineer
+                description: Bachelor of Technology
+                visibility: true
+              - master_logo: mta.jpeg
+                master_name: USN
+                master_url: http://usn.no/
+                master_degree: 
+                description: Master of embedded system
+                visibility: true
+
+author_project_details:
+              - project_thumbnail: 
+                project_title: 
+                project_description: 3d simulation
+                project_url: 
+                visibility: true
+              - project_thumbnail: programmingebooks.png
+                project_title: Programming Ebooks
+                project_description: 
+                project_url: 
+                visibility: true

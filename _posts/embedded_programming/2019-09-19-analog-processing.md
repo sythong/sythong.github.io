@@ -5,11 +5,11 @@ author: Thong Ho
 date: '2019-09-19 11:55:23 +0530'
 categories: embbed_programming
 summary: this blog for learing and sharing knowledge
-thumbnail: siteleaf.jpg
-permalink: /:categories
+thumbnail: kalman2.png
+permalink: /:categories/methods
+use_math: true
 ---
 
-# Một số phương pháp xử lý tín hiệu đọc từ ADC.
 ## Mục đich
 
 Nội dung 
@@ -21,10 +21,34 @@ Nội dung
 
 
 
+1. Bộ lọc trung bình 
 
-- **Kết quả**:
+- Giá trị đầu ra được lấy trung bình $n$ mẫu (n samples) theo giá trị đầu vào. 
+- Công thức : 
 
- + Bộ lọc trung bình 
+    $$ x_{out}  = \frac{\sum{x_i}}{n}$$
+
+- Code : 
+```c++
+int AnalogProcessing::getAverageValue(float in_value, float &out_value)
+{
+  inc_avr ++;  // bat dau tinh tu 1
+  if (inc_avr <= number_of_samples)
+  {
+    sum_average += in_value;
+    return -1;
+  }
+  else
+  {
+    out_value = (float)sum_average / number_of_samples;
+    sum_average = 0;
+    inc_avr = 0;
+    return 1;
+  }
+}
+```
+Ở đây hàm đưa tham số đầu vào m sử dụng dạng tham chiếu. nên khi sử dụng ta cần đưa một biến toàn cục mà bạn muốn lấy dữ liệu. Hàm hàm này có thể được viết lại thêm 1 function chỉ có cập nhật giá trị đầu ra riêng là được. 
+- Một số hình ảnh đầu ra : 
 ![](/assets/img/embedded_programming/analog_processing/adc_average_1.png)
 
  + Đáp ứng của bộ lọc trung bình khi giá trị thay đổi
@@ -35,6 +59,13 @@ Nội dung
     -- lý thuyết
 
     -- Code: 
+```c++
+float AnalogProcessing::getLowPassValue(float value)
+{
+  out_value_lowpass = alpha_lowpass * out_value_lowpass + (1 - alpha_lowpass) * value;
+  return out_value_lowpass;
+}
+```
 
 ![](/assets/img/embedded_programming/analog_processing/lowpass_h1.png){:class="img-fluid"}
 
@@ -46,31 +77,35 @@ Nội dung
 
 - Lý thuyết : 
 
+- Prediction Phase:
 
-$$\hat{r}^{BLE}_{t} = r^{BLE}_{t-1}$$
+    $$\hat{r}_{t} = r_{t-1}$$ 
 
-$$\begin{itemize}
-    \item Prediction Phase:
-    \begin{equation}
-        \begin{split}
-            \hat{r}^{BLE}_{t} = r^{BLE}_{t-1},\\
-            &\hat{P}_t = P_t + R_t
-        \end{split}
-    \end{equation}
-      
-    \item Update Phase:
-     \begin{equation}
-        \begin{split}
-            & K_t = \frac{\hat{P}_t}{\hat{P}_t + Q}\\
-            & P_t = (1-K_t)\hat{P}_t \\
-            & r^{BLE}_{t} = \hat{r}^{BLE}_{t} + K_t(z_t^{BLE} - \hat{r}^{BLE}_{t})
-        \end{split}
-    \end{equation}
-\end{itemize}$$
+    $$\hat{P}_t = P_t + R_t$$
+
+- Update phase : 
+
+    $$K_t = \frac{\hat{P}_t}{\hat{P}_t + Q} $$
+
+    $$P_t = (1-K_t)\hat{P}_t$$
+    
+    $$r_{t} = \hat{r}_{t} + K_t(z_t - \hat{r}_{t})$$
 
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\hat{r}^{BLE}_{t} = r^{BLE}_{t-1}" title="\hat{r}^{BLE}_{t} = r^{BLE}_{t-1}" />
+- code c++: 
+``` c++
+float AnalogProcessing::getKalmanFilterValue(float value)
+{
+    // update phase
+  kalman_gain = err_estimate/(err_estimate + err_measure);  // tinh toan sai so uoc luong
+  kalman_current_estimate = kalman_last_estimate + kalman_gain*(value - kalman_last_estimate);  // cap nhat gia tri hien tai 
+// prediction phase
+  err_estimate = (1.0 - kalman_gain) * err_estimate + fabs(kalman_last_estimate - kalman_current_estimate)*err_process;
+  kalman_last_estimate = kalman_current_estimate;
 
+  return kalman_current_estimate;
+}
+```
 
 ![](/assets/img/embedded_programming/analog_processing/kalman1.png){:class="img-fluid"}
 
