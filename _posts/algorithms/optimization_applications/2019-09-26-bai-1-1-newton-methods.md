@@ -11,12 +11,15 @@ use_math: true
 
 # Optimization
 ## Optimization problem:
- A generic optimization problem 
+ Một bài toán tối ưu hóa chung 
         minimize $f(x)$
-        subject to $x \in X$ 
-- $x \in R^n $ is the optimization variable
+        subject to $x \in X$  (Hàm mục tiêu)
+- Trong đó : 
+    - $x \in R^n $ is the optimization variable
+    - $ f: R^n 
 
 ## Probems:
 
 - Taylor: 
 $$ q(x) = f(x^k) + f'(x^k) (x-x^k) $$
+
