@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lập trình c++ cơ bản (pointers, Arrays, stuctures)
+title: Lập trình c++ cơ bản (pointers, Arrays, structures)
 author: Thong Ho
 date: '2019-2-2 21:35:23 +0530'
 categories: Computer_system_enginering
@@ -10,6 +10,8 @@ permalink: /:categories/pointers
 ---
 
 # BASIC C++ PROGRAMMING
+
+reference : book: Data structures and Algorithm in C++  (MiChael T.Goodrich - Roberto Tamassia - David Mount)
 
 ## Pointers
 -  Mỗi biến được lưu trữ trong bộ nhớ máy tính tại một nơi nào đó với địa chỉ nhất định. 
@@ -39,55 +41,55 @@ ví dụ :
 ## Structures 
 - is useful for storing an aggretion of elements.
 - Struct thường để tập hợp các thành phần thuộc tính có cùng chung một mối liên hệ nào đó. Ta sẽ gom các nhóm đó lại vs nhau. Đối với c++ thì struct cũng thường được coi như là một class. 
-```cpp
-enum MealType {NO_PREF, REGULAR, LOW_FAT, VEGETARIAN};
-struct Passenger {
-string name;
-MealType mealPref;
-bool isFreFlyer;
-string freFlyerNo;
-};
-```
+    ```cpp
+    enum MealType {NO_PREF, REGULAR, LOW_FAT, VEGETARIAN};
+    struct Passenger {
+        string name;
+        MealType mealPref;
+        bool isFreFlyer;
+        string freFlyerNo;
+    };
+    ```
 
-## Example of pointers and Arrays
-```cpp
-char c[] = {‘c’, ‘a’, ‘t’};
-char *p=c;
-char *q=&c[0];
-cout << c[2] << p[2] << q[2];
-```
+- Example of pointers and Arrays
+   ```cpp
+    char c[] = {‘c’, ‘a’, ‘t’};
+    char *p=c;
+    char *q=&c[0];
+    cout << c[2] << p[2] << q[2];
+   ```
 
 ## Allocate a new instance  (cấp phát bộ nhớ)
 - Sử dụng toán tử new
-```cpp
-p = new Passenger;
-//…
-p‐>name = “Pocahontas”;
-p‐>mealPref = REGULAR;
-p‐>isFreqFlyer = false;
-p‐>freqFlyerNo = “NONE”;
-//…
-delete p;
-```
+    ```cpp
+    p = new Passenger;
+    //…
+    p‐>name = “Pocahontas”;
+    p‐>mealPref = REGULAR;
+    p‐>isFreqFlyer = false;
+    p‐>freqFlyerNo = “NONE”;
+    //…
+    delete p;
+    ```
 - Lưu ý: Khi cấp phát một đối tượng bằng toán tử 'new' , thì cuối cùng khi kết thúc nên sử dụng toán tử "delete" để giải phóng vùng nhớ đã được cấp phát.
 
 ##  Namespaces
 - is a machanism that allows a group of related names to be define in one place.
 - Ex: 
-```cpp
-namespace myglobal {
-int cat;
-string dog = “bow bow”;
-}
-//…
-myglobal::cat = 1;
-```
+    ```cpp
+    namespace myglobal {
+    int cat;
+    string dog = “bow bow”;
+    }
+    //…
+    myglobal::cat = 1;
+    ```
 - The using statement:
-```cpp
-using std::string //makes std::string accessible
-using std::cout //make std::cout accessible
-using namespace myglobals //makes all of myglobals accessible
-```
+    ```cpp
+    using std::string //makes std::string accessible
+    using std::cout //make std::cout accessible
+    using namespace myglobals //makes all of myglobals accessible
+    ```
 
 ## scope (phạm vi của biến)
 - Local, global and static variable:
@@ -135,10 +137,10 @@ using namespace myglobals //makes all of myglobals accessible
 
 2.  Bài 2: (Midterm semester 2, 2018-2019 ) Given A following C++ declaration:
 
-```cpp
-string A[] = {"Bach", "Khoa","office","international","study","program"};
-string *p = A;
-```
+    ```cpp
+        string A[] = {"Bach", "Khoa","office","international","study","program"};
+        string *p = A;
+    ```
 - a. Use the pointer p to print the element “office” of the array A, and show it on the screen.
     - Solution:
     ```cpp
