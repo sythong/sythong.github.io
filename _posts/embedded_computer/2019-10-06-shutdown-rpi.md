@@ -12,8 +12,7 @@ permalink: /:categories/shutdown-rpi
 ## Tại sao cần có nút nhấn tắt nguồn cho pi
 - Như chúng ta biết thì hệ điều hành của pi được nằm trên thẻ nhớ. Khi bạn tạo các ứng dụng cho raspberry pi, khởi động lên có thể sẽ chỉ chạy vào mỗi chương trình của bạn. do đó nếu tắt nguồn pi bằng cách rút nguồn đột ngột rất dễ gây ra hỏng thẻ nhớ. 
 
-link tham khảo :
-[] https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi
+link tham khảo tiếng anh: [here](https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi)
 
 ## Xây dựng chương trình function cho tắt pi
 - bạn có thể download trực tiếp chương trình từ link:
