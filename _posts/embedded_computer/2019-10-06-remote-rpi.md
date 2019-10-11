@@ -8,3 +8,7 @@ summary:  Hướng dẫn các phương pháp kết nối từ xa với pi
 thumbnail: siteleaf.jpg
 permalink: /:categories/remote-rpi
 ---
+
+## Sử dụng SSH với rpi:
+
+- 
