@@ -6,7 +6,7 @@ date: '2019-10-20 21:35:23 +0530'
 categories: Computer_system_enginering
 summary:  Lập trình về exception
 thumbnail: siteleaf.jpg
-permalink: /:categories/pointers
+permalink: /:categories/exceptions
 ---
 
 
@@ -86,7 +86,7 @@ int main() {
     ```
 
     virtual const char* what() const throw()
-    
+
     ```
     định nghĩa overivedden hàm what của lớp cơ bản trả về (const) (char*) (c string ) "My devired exception.  
 
