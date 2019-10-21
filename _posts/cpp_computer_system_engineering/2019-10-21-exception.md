@@ -2,7 +2,7 @@
 layout: post
 title: Exceptions
 author: Thong Ho
-date: '2019-10-21 21:35:23 +0530'
+date: '2019-10-20 21:35:23 +0530'
 categories: Computer_system_enginering
 summary:  Lập trình về exception
 thumbnail: siteleaf.jpg
