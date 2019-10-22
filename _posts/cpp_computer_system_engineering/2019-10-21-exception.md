@@ -79,14 +79,81 @@ int main() {
     class derivedexception: public exception {}
 
     ```
-    khai báo một lớp derived của chung ta gọi là derivedexception và ta truy xuất lớp exception cơ bản như là public members. 
-
-    - Dòng thứ 5:
+two lines close thtwo lines close thtwo lines close th
+two lines close th
+two lines close th
+two lines close th
+two lines close th
+two lines close th
+two lines close th
 
     ```
+    định nghĩa overivedden hàm what của lớp cơ bản trả về (const) (char*) (c string ) "My devired exception. Hai dòng tiếp theo là đóng 
 
-    virtual const char* what() const throw()
 
-    ```
-    định nghĩa overivedden hàm what của lớp cơ bản trả về (const) (char*) (c string ) "My devired exception.  
+
+
+- Ví dụ 4:  sử dụng exception cho 2 vector, update vector2 bị lỗi :
+    
+```
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void updateVector(std::vector<std::string>& firstvector_, std::vector<std::string>& secondvector_, std::string newString) {
+    firstvector_.push_back(newString);
+    try {
+        secondvector_.push_back(newString);
+    }
+    catch (...) {
+        firstvector_.pop_back();
+        cout << "second vector update failed." << endl;
+    }
+}
+
+void updateVector2(std::vector<std::string>& firstvector_, std::vector<std::string>& secondvector_, std::string newString) {
+    firstvector_.push_back(newString);
+    try {
+        std::bad_alloc excep;
+        throw excep;
+        secondvector_.push_back(newString);
+    }
+    catch (...) {
+        firstvector_.pop_back();
+        cout << "second vector update failed." << endl;
+    }
+}
+
+int main() {
+    std::vector<std::string> firstvector;
+    std::vector<std::string> secondvector;
+    std::string mystring("Hello world!");
+
+    cout << "Calling updateVector " << endl;
+    updateVector(firstvector, secondvector, mystring);
+
+    cout << "first vector size is " << firstvector.size() << " second vector size is " << secondvector.size() << endl;
+
+    cout << "Calling updateVector2 " << endl;
+
+    updateVector2(firstvector, secondvector, mystring);
+    cout << "first vector size is " << firstvector.size() << " second vector size is " << secondvector.size() << endl;
+}
+
+```
+
+- Kết quả :
+
+```
+
+thongktdt@slam:/media/thongktdt/DATA/2.USN/01_OOP/Cplusplus/cppAdvanCourse/exception$ ./ex4 
+Calling updateVector 
+first vector size is 1 second vector size is 1
+Calling updateVector2 
+second vector update failed.
+first vector size is 1 second vector size is 1
+
+```
 
