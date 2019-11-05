@@ -6,7 +6,7 @@ date: '2019-11-02 20:55:23 +0530'
 categories: iot
 summary: Hướng dan esp mqtt  and nodeRed
 thumbnail: kalman2.png
-permalink: /:categories/esp-ros
+permalink: /:categories/esp-mqtt-nodered
 use_math: true
 ---
 
@@ -32,6 +32,13 @@ use_math: true
 
     - Node-Red Dashboard
 
+## Cài đặt mqtt :
+    - Tạo 1 instance trên cloudmqtt
+    - tạo 1 user sử dụng ví dụ :
+        ```
+        smart4chanel_maithe
+
+        ```
 
 
 ## Deploy with Heroku
