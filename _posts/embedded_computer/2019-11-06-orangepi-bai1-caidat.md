@@ -63,4 +63,10 @@ sudo ifup wlan0
 ifconfig
 ```
 
+6. Có 1 cách đơn giản hơn bạn có thể dùng:
+
+```
+sudo nmtui
+```
+
 
